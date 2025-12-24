@@ -100,7 +100,7 @@ const Hero = () => {
             <span className="text-white font-medium">MERN Stack Developer</span>{" "}
             focused on building clean, responsive, and user-friendly web
             applications. Actively seeking an{" "}
-            <span className="text-emerald-400 font-medium">
+            <span className="text-white font-medium">
               internship opportunity
             </span>{" "}
             to grow and contribute.
@@ -126,7 +126,7 @@ const Hero = () => {
           </div>
 
           {/* Social + Location */}
-          <div className="flex flex-wrap items-center gap-6 ">
+          <div className="flex flex-wrap items-center gap-6 mb-5">
             <div className="flex gap-4">
               <a
                 href="https://github.com/Hlamong55"
@@ -145,7 +145,7 @@ const Hero = () => {
                 href="mailto:bijoymarma55@gmail.com"
                 className="p-3 rounded-lg bg-slate-800 hover:bg-slate-700"
               >
-                <MdEmail className="text-xl text-emerald-400" />
+                <MdEmail className="text-xl text-white" />
               </a>
             </div>
 
