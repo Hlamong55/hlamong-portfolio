@@ -39,7 +39,7 @@ const Navbar = () => {
 
   const navItems = [
     { id: "home", icon: <FaHome />, label: "Home", offset: -80 },
-    { id: "about", icon: <FaUser />, label: "About", offset: -80 },
+    { id: "home", icon: <FaUser />, label: "About", offset: -80 },
     { id: "skills", icon: <FaCode />, label: "Skills", offset: -80 },
     { id: "projects", icon: <FaProjectDiagram />, label: "Projects", offset: -80 },
     { id: "contact", icon: <MdEmail />, label: "Contact", offset: -80 },
