@@ -10,11 +10,13 @@ import { FiArrowUpRight } from "react-icons/fi";
 // images
 import project1a from "../assets/TravelEase1.jfif";
 import project1b from "../assets/TravelEase2.jfif";
-// import project1c from "../assets/TravelEase3.jfif";
-import project2a from "../assets/project2.png";
-import project2b from "../assets/project2.png";
-import project3a from "../assets/project3.png";
-import project3b from "../assets/project3.png";
+import project1c from "../assets/TravelEase3.jfif";
+import project2b from "../assets/asset-verse-5bd83.web.app_.png";
+import project2c from "../assets/asset-verse-5bd83.web.app2.png";
+import project2a from "../assets/asset-verse-5bd83.web.app_dashboard_hr_profile.png";
+import project3a from "../assets/beamish-tarsier-2d97c3.netlify.app_gameDetails_1.png";
+import project3b from "../assets/beamish-tarsier-2d97c3.netlify.app_ (8).png";
+import project3c from "../assets/beamish-tarsier-2d97c3.netlify.app_ (7).png";
 
 const Projects = () => {
   const [activeProject, setActiveProject] = useState(null);
@@ -26,7 +28,7 @@ const Projects = () => {
       title: "TravelEase – Vehicle Booking & Trip Management Platform",
       description:
         "A booking platform where users can explore, list, manage, and book vehicles with secure authentication.",
-      images: [project1a, project1b],
+      images: [project1a, project1b, project1c],
       githubClient: "https://github.com/Hlamong55/travelease-client",
       githubServer: "https://github.com/Hlamong55/travelease-server",
       liveDemo: "https://travel-easy-a9889.web.app/",
@@ -48,7 +50,7 @@ const Projects = () => {
       title: "AssetVerse – Corporate B2B Asset Management System",
       description:
         "A smart asset management system for tracking, assigning, and managing company resources efficiently.",
-      images: [project2a, project2b],
+      images: [project2a, project2b, project2c],
       githubClient: "https://github.com/Hlamong55/asset-verse-client",
       githubServer: "https://github.com/Hlamong55/asset-verse-server",
       liveDemo: "https://asset-verse-5bd83.web.app/",
@@ -57,12 +59,12 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: "Gaming Review Platform",
-      description: "A community-driven gaming review and rating platform.",
-      images: [project3a, project3b],
-      githubClient: "https://github.com/PritomChakma/PH-Assignment-10",
-      githubServer: "https://github.com/PritomChakma/PH-Assignment-10-Server",
-      liveDemo: "https://ph-assignment-10-22d95.web.app/",
+      title: "GameHub – A Game Library",
+      description: "GameHub is a stylish and responsive web application designed for gamers to explore and manage games. It includes authentication, password reset, and profile management ",
+      images: [project3a, project3b, project3c],
+      githubClient: "https://github.com/Hlamong55/GameHub-A-Game-Library",
+      // githubServer: "https://github.com/PritomChakma/PH-Assignment-10-Server",
+      liveDemo: "https://beamish-tarsier-2d97c3.netlify.app/",
       technologies: ["React", "Context API", "MongoDB", "Firebase"],
       features: ["Reviews & Ratings", "Community Features", "Moderation"],
     },
@@ -103,7 +105,7 @@ const Projects = () => {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="group bg-slate-800/80 border border-slate-700 rounded-2xl overflow-hidden hover:-translate-y-2 hover:border-emerald-400/50 transition"
+              className="group bg-slate-800/90 border border-slate-700 rounded-2xl overflow-hidden hover:-translate-y-2 hover:border-emerald-400/50 transition"
             >
               {/* image */}
               <div
@@ -118,7 +120,7 @@ const Projects = () => {
                   alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
                 />
-                <div className="absolute inset-0 bg-black/20" />
+                <div className="absolute inset-0 bg-black/15" />
               </div>
 
               {/* content */}
@@ -189,7 +191,7 @@ const Projects = () => {
           <div className="relative bg-slate-900 border border-slate-700 rounded-2xl max-w-4xl w-full p-6">
             <button
               onClick={() => setActiveProject(null)}
-              className="absolute top-118 right-4 bg-red-500 text-white hover:bg-red-700 px-3.5 py-1 font-semibold rounded-xl hover:scale-105 transition"
+              className="absolute top-124 right-4 bg-red-500 text-white hover:bg-red-700 px-3.5 py-1 font-semibold rounded-xl hover:scale-105 transition"
             >
               Exit
             </button>
@@ -197,7 +199,7 @@ const Projects = () => {
             <img
               src={activeProject.images[activeImage]}
               alt="project"
-              className="w-full h-[400px] object-cover rounded-xl mb-5"
+              className="w-[550px] h-[450px] mx-auto object-contain rounded-xl mb-3 transition-transform duration-200 hover:scale-105"
             />
 
             <div className="flex gap-3 justify-center">
