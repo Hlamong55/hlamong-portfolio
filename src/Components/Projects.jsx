@@ -1,18 +1,16 @@
 import { useState } from "react";
 import {
-  FaGithub,
-  FaExternalLinkAlt,
   FaServer,
   FaCode,
   FaCheckCircle,
-  FaTimes,
   FaStar,
 } from "react-icons/fa";
 import { FiArrowUpRight } from "react-icons/fi";
 
 // images
-import project1a from "../assets/project1.png";
-import project1b from "../assets/project1.png";
+import project1a from "../assets/TravelEase1.jfif";
+import project1b from "../assets/TravelEase2.jfif";
+// import project1c from "../assets/TravelEase3.jfif";
 import project2a from "../assets/project2.png";
 import project2b from "../assets/project2.png";
 import project3a from "../assets/project3.png";
@@ -143,7 +141,7 @@ const Projects = () => {
                 </div>
 
                 {/* tech */}
-                <div className="flex flex-wrap gap-2 mb-5">
+                <div className="flex flex-wrap gap-2 my-5">
                   {project.technologies.map((tech, i) => (
                     <span
                       key={i}
@@ -159,14 +157,14 @@ const Projects = () => {
                   <a
                     href={project.githubClient}
                     target="_blank"
-                    className="flex items-center justify-center gap-2 text-sm px-4 py-2 rounded-lg bg-white hover:bg-slate-400 transition"
+                    className="flex items-center justify-center gap-2 text-sm font-semibold px-4 py-2 rounded-lg bg-white hover:bg-slate-400 transition"
                   >
                     <FaCode /> Frontend
                   </a>
                   <a
                     href={project.githubServer}
                     target="_blank"
-                    className="flex items-center justify-center gap-2 text-sm px-4 py-2 rounded-lg bg-white hover:bg-slate-400 transition"
+                    className="flex items-center justify-center gap-2 text-sm font-semibold px-4 py-2 rounded-lg bg-white hover:bg-slate-400 transition"
                   >
                     <FaServer /> Backend
                   </a>
@@ -209,7 +207,7 @@ const Projects = () => {
                   src={img}
                   alt=""
                   onClick={() => setActiveImage(i)}
-                  className={`w-20 h-14 object-cover rounded-lg cursor-pointer border ${
+                  className={`w-16 h-10 object-cover rounded-lg cursor-pointer border ${
                     activeImage === i
                       ? "border-emerald-400"
                       : "border-slate-600"
