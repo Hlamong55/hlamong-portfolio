@@ -62,7 +62,7 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
             Let’s{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-400 to-blue-500">
               Work Together

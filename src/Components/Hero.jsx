@@ -9,7 +9,7 @@ import {
 } from "react-icons/fa";
 import { MdEmail, MdLocationOn, MdVerified, MdWork } from "react-icons/md";
 import { Link as ScrollLink } from "react-scroll";
-import resume from "../assets/resumePDF.pdf";
+import resume from "../assets/Hlamong_MERN_Resume.pdf";
 import img from "../assets/Logo.jpeg";
 
 const roles = [
@@ -65,7 +65,7 @@ const Hero = () => {
       className="relative min-h-screen flex items-center bg-linear-to-br from-slate-950 via-slate-900 to-slate-950 pt-24"
     >
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-        {/* ================= LEFT ================= */}
+        
         <div className="space-y-8">
           {/* badge */}
           <div className="inline-flex mt-2 items-center gap-3 px-4 py-2 rounded-xl bg-slate-800/80 border border-slate-700">
@@ -109,7 +109,7 @@ const Hero = () => {
           {/* CTA */}
           <div className="flex flex-wrap gap-4 pt-4">
             <ScrollLink to="projects" smooth offset={-80} duration={600}>
-              <button className="flex items-center gap-3 px-7 py-4 rounded-xl bg-linear-to-r from-emerald-500 to-cyan-500 text-slate-900 font-bold hover:scale-105 transition">
+              <button className="flex items-center gap-3 px-7 py-4 rounded-xl bg-linear-to-r from-emerald-500 to-cyan-500 text-slate-900 font-bold hover:scale-105 transition hover:text-gray-600">
                 <MdWork />
                 View Projects
                 <FaArrowRight />
@@ -118,7 +118,7 @@ const Hero = () => {
 
             <button
               onClick={handleResumeDownload}
-              className="flex items-center gap-3 px-7 py-4 rounded-xl border border-slate-600 text-slate-200 hover:border-emerald-400 hover:text-white transition"
+              className="flex items-center gap-3 px-7 py-4 rounded-xl font-bold border border-slate-600 text-slate-200 hover:border-emerald-400 hover:text-emerald-400 hover:scale-105 transition"
             >
               <FaFileDownload />
               Download Resume
@@ -145,7 +145,7 @@ const Hero = () => {
                 href="mailto:bijoymarma55@gmail.com"
                 className="p-3 rounded-lg bg-slate-800 hover:bg-slate-700"
               >
-                <MdEmail className="text-xl text-white" />
+                <MdEmail className="text-xl text-white " />
               </a>
             </div>
 
@@ -156,11 +156,11 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* ================= RIGHT ================= */}
+      {/* Right side */}
         <div className="relative flex flex-col justify-center items-center">
           <div
             className="
-      mb-4 px-5 py-2 rounded-full
+      mb-4 px-5 py-2.5 rounded-full
       bg-linear-to-r from-emerald-500 to-cyan-500
       text-slate-900 text-sm font-bold
       shadow-lg animate-pulse
@@ -170,14 +170,18 @@ const Hero = () => {
           </div>
 
           {/* Profile Card */}
-          <div className="relative bg-slate-900 rounded-3xl border border-slate-700 shadow-2xl p-5">
-            <div className="absolute top-2.5 right-4 flex items-center gap-1 text-emerald-400 text-sm font-medium">
+          <div className="relative bg-slate-900 rounded-3xl border border-slate-700 shadow-2xl p-6">
+            <div className="absolute top-2 right-4 flex items-center gap-1 text-emerald-400 text-sm font-medium">
               <MdVerified size={18}/>
-              Verified
+             <span className="text-white">
+               Verified
+             </span>
             </div>
 
+  
+
             {/* Image */}
-            <div className="relative w-82 mx-auto rounded-2xl overflow-hidden border-4 border-slate-800 mt-4">
+            <div className="relative w-82 mx-auto rounded-2xl overflow-hidden border-4 border-emerald-400 mt-4">
               <img
                 src={img}
                 alt="Hla Mong Marma"

@@ -163,7 +163,7 @@ const Skills = () => {
 
               <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-linear-to-r from-emerald-400 to-cyan-400 transition-all duration-1000"
+                  className="h-full bg-linear-to-r from-blue-400 to-purple-500 transition-all duration-1000"
                   style={{ width: `${skill.level}%` }}
                 />
               </div>

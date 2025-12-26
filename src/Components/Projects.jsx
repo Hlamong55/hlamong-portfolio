@@ -65,8 +65,8 @@ const Projects = () => {
       githubClient: "https://github.com/Hlamong55/GameHub-A-Game-Library",
       // githubServer: "https://github.com/PritomChakma/PH-Assignment-10-Server",
       liveDemo: "https://beamish-tarsier-2d97c3.netlify.app/",
-      technologies: ["React", "Context API", "MongoDB", "Firebase"],
-      features: ["Reviews & Ratings", "Community Features", "Moderation"],
+      technologies: ["React", "Context API", "Framer-Motion", "Firebase"],
+      features: ["Dynamic Game Experience", "Smooth & Modern UI", "Secure Authentication & Profiles"],
     },
   ];
 
@@ -90,7 +90,7 @@ const Projects = () => {
             <FaStar className="text-emerald-400" />
           </div>
           <h2 className="text-4xl md:text-6xl font-bold text-slate-100">
-            Featured{" "}
+           My Featured{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-400 to-cyan-400">
               Work
             </span>
