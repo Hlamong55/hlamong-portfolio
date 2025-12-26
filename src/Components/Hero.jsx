@@ -65,7 +65,6 @@ const Hero = () => {
       className="relative min-h-screen flex items-center bg-linear-to-br from-slate-950 via-slate-900 to-slate-950 pt-24"
     >
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-        
         <div className="space-y-8">
           {/* badge */}
           <div className="inline-flex mt-2 items-center gap-3 px-4 py-2 rounded-xl bg-slate-800/80 border border-slate-700">
@@ -156,32 +155,39 @@ const Hero = () => {
           </div>
         </div>
 
-      {/* Right side */}
+        {/* Right side */}
         <div className="relative flex flex-col justify-center items-center">
+          {/* Internship Badge */}
           <div
             className="
       mb-4 px-5 py-2.5 rounded-full
       bg-linear-to-r from-emerald-500 to-cyan-500
       text-slate-900 text-sm font-bold
-      shadow-lg animate-pulse
-    "
+      shadow-lg animate-pulse"
           >
             Available for Internship
           </div>
 
           {/* Profile Card */}
-          <div className="relative bg-slate-900 rounded-3xl border border-slate-700 shadow-2xl p-6">
-            <div className="absolute top-2 right-4 flex items-center gap-1 text-emerald-400 text-sm font-medium">
-              <MdVerified size={18}/>
-             <span className="text-white">
-               Verified
-             </span>
+          <div className="relative bg-slate-900 rounded-3xl border border-slate-700 shadow-2xl p-6 w-full max-w-sm">
+          
+            <div className="absolute top-3 left-4 right-4 flex items-center justify-between">
+        
+              <div className="flex items-center gap-2">
+                <span className="w-3 h-3 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="w-3 h-3 rounded-full bg-blue-500 animate-pulse delay-150" />
+                <span className="w-3 h-3 rounded-full bg-violet-500 animate-pulse delay-300" />
+              </div>
+
+              {/* Verified Badge (RIGHT) */}
+              <div className="flex items-center gap-1 text-emerald-400 text-sm font-medium">
+                <MdVerified size={18} />
+                <span className="text-white">Verified</span>
+              </div>
             </div>
 
-  
-
             {/* Image */}
-            <div className="relative w-82 mx-auto rounded-2xl overflow-hidden border-4 border-emerald-400 mt-4">
+            <div className="relative w-82 mx-auto rounded-2xl overflow-hidden border-4 border-emerald-400 mt-8">
               <img
                 src={img}
                 alt="Hla Mong Marma"
@@ -192,12 +198,10 @@ const Hero = () => {
             {/* Badges */}
             <div className="mt-4 flex justify-center gap-4">
               <span className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800 font-semibold text-sm text-emerald-400">
-                <FaStar />
-                MERN
+                <FaStar /> MERN
               </span>
               <span className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800 font-semibold text-sm text-cyan-400">
-                <FaRocket />
-                1+ Year
+                <FaRocket /> 1+ Year
               </span>
             </div>
           </div>

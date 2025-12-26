@@ -1,11 +1,14 @@
 import { useState } from "react";
-import {
-  FaServer,
-  FaCode,
-  FaCheckCircle,
-  FaStar,
-} from "react-icons/fa";
+import { FaServer, FaCode, FaCheckCircle, FaStar } from "react-icons/fa";
 import { FiArrowUpRight } from "react-icons/fi";
+import {
+  SiMongodb,
+  SiExpress,
+  SiReact,
+  SiNodedotjs,
+  SiFirebase,
+  SiJsonwebtokens,
+} from "react-icons/si";
 
 // images
 import project1a from "../assets/TravelEase1.jfif";
@@ -32,13 +35,7 @@ const Projects = () => {
       githubClient: "https://github.com/Hlamong55/travelease-client",
       githubServer: "https://github.com/Hlamong55/travelease-server",
       liveDemo: "https://travel-easy-a9889.web.app/",
-      technologies: [
-        "React",
-        "Node",
-        "MongoDB",
-        "Express",
-        "Firebase",
-      ],
+      technologies: ["React", "Node", "MongoDB", "Express", "Firebase"],
       features: [
         "Vehicle Management",
         "Secure Authentication",
@@ -55,18 +52,27 @@ const Projects = () => {
       githubServer: "https://github.com/Hlamong55/asset-verse-server",
       liveDemo: "https://asset-verse-5bd83.web.app/",
       technologies: ["React", "MongoDB", "Express", "Firebase", "JWT"],
-      features: ["Centralized Asset Tracking", "Role-Based Dashboard", "Payment Based Subscription"],
+      features: [
+        "Centralized Asset Tracking",
+        "Role-Based Dashboard",
+        "Payment Based Subscription",
+      ],
     },
     {
       id: 3,
       title: "GameHub – A Game Library",
-      description: "GameHub is a stylish and responsive web application designed for gamers to explore and manage games. It includes authentication, password reset, and profile management ",
+      description:
+        "GameHub is a stylish and responsive web application designed for gamers to explore and manage games. It includes authentication, password reset, and profile management ",
       images: [project3a, project3b, project3c],
       githubClient: "https://github.com/Hlamong55/GameHub-A-Game-Library",
       // githubServer: "https://github.com/PritomChakma/PH-Assignment-10-Server",
       liveDemo: "https://beamish-tarsier-2d97c3.netlify.app/",
       technologies: ["React", "Context API", "Framer-Motion", "Firebase"],
-      features: ["Dynamic Game Experience", "Smooth & Modern UI", "Secure Authentication & Profiles"],
+      features: [
+        "Dynamic Game Experience",
+        "Smooth & Modern UI",
+        "Secure Authentication & Profiles",
+      ],
     },
   ];
 
@@ -90,7 +96,7 @@ const Projects = () => {
             <FaStar className="text-emerald-400" />
           </div>
           <h2 className="text-4xl md:text-6xl font-bold text-slate-100">
-           My Featured{" "}
+            My Featured{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-400 to-cyan-400">
               Work
             </span>
@@ -98,6 +104,82 @@ const Projects = () => {
           <p className="mt-4 text-slate-400 max-w-2xl mx-auto">
             Real-world full-stack projects built with modern technologies.
           </p>
+
+          {/* Core Technologies */}
+          <div className="m-16">
+            <h4 className="text-center text-slate-200  tracking-widest font-semibold mb-6">
+              CORE TECHNOLOGIES
+            </h4>
+
+            <div className="flex flex-wrap justify-center gap-4">
+              {[
+                {
+                  name: "MongoDB",
+                  icon: <SiMongodb />,
+                  iconBg: "bg-emerald-500/20",
+                  iconText: "text-emerald-400",
+                  border: "border-emerald-400/40",
+                },
+                {
+                  name: "Express",
+                  icon: <FaServer />,
+                  iconBg: "bg-slate-600/30",
+                  iconText: "text-slate-200",
+                  border: "border-slate-500",
+                },
+                {
+                  name: "React",
+                  icon: <SiReact />,
+                  iconBg: "bg-cyan-500/20",
+                  iconText: "text-cyan-400",
+                  border: "border-cyan-400/40",
+                },
+                {
+                  name: "Node.js",
+                  icon: <SiNodedotjs />,
+                  iconBg: "bg-green-500/20",
+                  iconText: "text-green-400",
+                  border: "border-green-400/40",
+                },
+                {
+                  name: "Firebase",
+                  icon: <SiFirebase />,
+                  iconBg: "bg-yellow-500/20",
+                  iconText: "text-yellow-400",
+                  border: "border-yellow-400/40",
+                },
+                {
+                  name: "JWT",
+                  icon: <SiJsonwebtokens />,
+                  iconBg: "bg-violet-500/20",
+                  iconText: "text-violet-400",
+                  border: "border-violet-400/40",
+                },
+              ].map((tech, i) => (
+                <div
+                  key={i}
+                  className={`flex items-center gap-3 px-5 py-2.5 rounded-xl border
+        bg-slate-800/60 backdrop-blur-md
+        ${tech.border}
+        hover:-translate-y-1 hover:scale-[1.04]
+        transition duration-300`}
+                >
+                  {/* Icon */}
+                  <span
+                    className={`w-9 h-9 flex items-center justify-center rounded-lg
+          ${tech.iconBg} ${tech.iconText} text-xl`}
+                  >
+                    {tech.icon}
+                  </span>
+
+                  {/* Text */}
+                  <span className="text-sm font-semibold text-slate-200">
+                    {tech.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* projects grid */}

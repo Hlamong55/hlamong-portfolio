@@ -34,7 +34,7 @@ const WhyChoose = () => {
   ];
 
   return (
-    <section className="relative bg-slate-900 py-20 px-4 overflow-hidden">
+    <section className="relative bg-slate-900 py-16 px-4 overflow-hidden">
       {/* glow */}
       <div className="absolute -top-40 right-0 w-96 h-96 bg-emerald-500/10 blur-3xl rounded-full" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/10 blur-3xl rounded-full" />
