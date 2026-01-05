@@ -65,9 +65,9 @@ const Hero = () => {
       className="relative min-h-screen flex items-center bg-linear-to-br from-slate-950 via-slate-900 to-slate-950 pt-24"
     >
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-        <div className="space-y-8">
+        <div className="space-y-8 pt-5">
           {/* badge */}
-          <div className="inline-flex mt-2 items-center gap-3 px-4 py-2 rounded-xl bg-slate-800/80 border border-slate-700">
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-slate-800/80 border border-slate-700">
             <span className="w-2.5 h-2.5 bg-emerald-400 rounded-full animate-pulse"></span>
             <span className=" font-semibold text-slate-200 tracking-wide">
               👋 Hi, I am
@@ -94,7 +94,7 @@ const Hero = () => {
           </div>
 
           {/* Description */}
-          <p className="text-lg text-slate-400 max-w-xl leading-relaxed">
+          <p className="text-lg text-slate-400 max-w-lg leading-relaxed">
             Passionate{" "}
             <span className="text-white font-medium">MERN Stack Developer</span>{" "}
             focused on building clean, responsive, and user-friendly web
