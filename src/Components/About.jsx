@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import {
   FaCode,
@@ -26,7 +27,7 @@ const About = () => {
           >
             <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
             <span className="text-sm font-semibold text-slate-300 tracking-widest">
-              SKILLS
+              ABOUT
             </span>
             <FaStar className="text-emerald-400" />
           </motion.div>
@@ -78,7 +79,7 @@ const About = () => {
               <div className="animated-border">
                 <div className="animated-border-inner">
                   <p>
-                    Building modern, responsive UI smooth animations, and scalable backend APIs.
+                    Building modern, <span>responsive UI</span> <span>smooth animations</span>, and scalable backend APIs.
                   </p>
                 </div>
               </div>
@@ -97,8 +98,8 @@ const About = () => {
 
             <div className="flex gap-3 items-center text-sm text-gray-300 pt-2">
               <FaHeart className="text-pink-500" size={18} />
-              Hobby — Travelling · Football · Movies · Curious · Fast learner ·
-              Team-friendly
+              Hobby — Travelling · Football · Movies · Inquisitive · Learning ·
+              Exploring
             </div>
           </motion.div>
 

@@ -1,15 +1,10 @@
-import {
-  FaRocket,
-  FaCode,
-  FaUserShield,
-  FaLightbulb,
-} from "react-icons/fa";
+import { FaRocket, FaCode, FaUserShield, FaLightbulb } from "react-icons/fa";
 
 const WhyChoose = () => {
   const items = [
     {
       title: "Real-World Projects",
-      desc: "Built complete full-stack application real business logic.",
+      desc: "Built complete full-stack application with real business logic.",
       icon: <FaRocket />,
       accent: "emerald",
     },
@@ -40,7 +35,6 @@ const WhyChoose = () => {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/10 blur-3xl rounded-full" />
 
       <div className="relative max-w-7xl mx-auto">
-
         {/* header */}
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-6xl font-bold text-slate-100">
@@ -52,7 +46,7 @@ const WhyChoose = () => {
 
           <p className="mt-5 text-slate-400 max-w-2xl mx-auto">
             A combination of practical experience, clean development practices,
-            and strong problem-solving skills.
+            and strong <br /> problem-solving skills.
           </p>
         </div>
 
@@ -61,23 +55,27 @@ const WhyChoose = () => {
           {items.map((item, i) => (
             <div
               key={i}
-              className="group bg-slate-800/80 border border-slate-700 rounded-2xl p-8
-                         hover:-translate-y-2 hover:border-emerald-400/50
-                         transition-all duration-300"
+              className="group animated-card bg-slate-800/80 border border-slate-700
+      rounded-2xl p-6
+      hover:-translate-y-2 hover:border-emerald-400/50
+      transition-all duration-300"
             >
-              <div
-                className={`w-14 h-14 mb-6 rounded-xl bg-slate-900
-                flex items-center justify-center text-2xl
-                text-${item.accent}-400 group-hover:scale-110 transition`}
-              >
-                {item.icon}
+              <div className="flex justify-center">
+                <div
+                  className={`w-15 h-14 mb-5 rounded-xl bg-slate-900
+          flex items-center justify-center text-2xl
+          text-${item.accent}-400
+          group-hover:scale-110 transition`}
+                >
+                  {item.icon}
+                </div>
               </div>
 
-              <h3 className="text-xl font-semibold text-slate-100 mb-3">
+              <h3 className="text-xl font-semibold text-slate-100 mb-3 text-center">
                 {item.title}
               </h3>
 
-              <p className="text-slate-400 text-sm leading-relaxed">
+              <p className="text-slate-400 text-sm leading-relaxed text-center">
                 {item.desc}
               </p>
             </div>
