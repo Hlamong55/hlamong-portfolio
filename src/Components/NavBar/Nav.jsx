@@ -11,7 +11,7 @@ import {
 import { MdEmail, MdWork } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
-import Logo from "../../../public/logo.png";
+
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -65,9 +65,9 @@ const Navbar = () => {
             <div className="relative">
               <div className="absolute -inset-0.5 bg-linear-to-br from-purple-400/20 to-green-400/20 rounded-full blur-md"></div>
               <img
-                src={Logo}
-                alt="Logo"
-                className="relative h-15 w-15 rounded-full object-cover"
+                src="/logo.png"
+                alt="Hlamong Logo"
+                className="relative h-14 w-14 rounded-full object-cover"
               />
             </div>
 

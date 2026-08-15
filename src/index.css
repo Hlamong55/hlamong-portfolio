@@ -1,77 +1,425 @@
 @import "tailwindcss";
 
+/* =========================================================
+   BRAND SYSTEM
+   Purple → Cyan → Green
+   ========================================================= */
+
+@theme {
+  /* Brand Colors */
+  --color-brand-purple: #8b5cf6;
+  --color-brand-cyan: #00c8ff;
+  --color-brand-green: #00e6a8;
+
+  /* Backgrounds */
+  --color-brand-bg: #081120;
+  --color-brand-bg-deep: #050b16;
+  --color-brand-section: #0d1729;
+  --color-brand-surface: #111c30;
+  --color-brand-card: #17243a;
+
+  /* Text */
+  --color-brand-text: #f8fafc;
+  --color-brand-muted: #94a3b8;
+
+  /* Borders */
+  --color-brand-border: #26364d;
+}
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+:root {
+  color-scheme: dark;
+
+  --brand-purple: #8b5cf6;
+  --brand-cyan: #00c8ff;
+  --brand-green: #00e6a8;
+
+  --bg-main: #081120;
+  --bg-deep: #050b16;
+  --bg-section: #0d1729;
+  --bg-surface: #111c30;
+  --bg-card: #17243a;
+
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+
+  --border-soft: rgba(148, 163, 184, 0.16);
+}
+
+
+html {
+  scroll-behavior: smooth;
+  background: var(--bg-main);
+}
+
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(0, 200, 255, 0.055),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 8% 60%,
+      rgba(139, 92, 246, 0.04),
+      transparent 28%
+    ),
+    var(--bg-main);
+
+  color: var(--text-main);
+
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+#root {
+  min-height: 100vh;
+}
+
+
+::selection {
+  background: rgba(0, 200, 255, 0.28);
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   CUSTOM SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #081120;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--brand-purple),
+    var(--brand-cyan),
+    var(--brand-green)
+  );
+
+  border-radius: 999px;
+  border: 2px solid #081120;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    #a78bfa,
+    #22d3ee,
+    #34d399
+  );
+}
+
+
+/* =========================================================
+   REUSABLE BRAND UTILITIES
+   ========================================================= */
+
+.brand-gradient-bg {
+  background: linear-gradient(
+    100deg,
+    var(--brand-purple) 0%,
+    var(--brand-cyan) 50%,
+    var(--brand-green) 100%
+  );
+}
+
+
+.brand-gradient-text {
+  background: linear-gradient(
+    100deg,
+    var(--brand-purple) 0%,
+    var(--brand-cyan) 50%,
+    var(--brand-green) 100%
+  );
+
+  background-size: 200% auto;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  animation: gradient-x 7s ease-in-out infinite;
+}
+
+
+.brand-glow {
+  box-shadow:
+    0 0 20px rgba(139, 92, 246, 0.14),
+    0 0 32px rgba(0, 200, 255, 0.1),
+    0 0 42px rgba(0, 230, 168, 0.08);
+}
+
+
+.brand-glow-hover {
+  transition:
+    box-shadow 300ms ease,
+    transform 300ms ease,
+    border-color 300ms ease;
+}
+
+.brand-glow-hover:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.28),
+    0 0 20px rgba(139, 92, 246, 0.14),
+    0 0 30px rgba(0, 200, 255, 0.11),
+    0 0 38px rgba(0, 230, 168, 0.07);
+}
+
+
+/* =========================================================
+   GLASS EFFECT
+   Useful for Navbar / Cards / Floating elements
+   ========================================================= */
+
+.glass-panel {
+  background: rgba(13, 23, 41, 0.76);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(148, 163, 184, 0.14);
+
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.22);
+}
+
+
+/* =========================================================
+   GRADIENT BORDER
+   Static premium version
+   ========================================================= */
+
+.brand-border {
+  position: relative;
+  isolation: isolate;
+}
+
+.brand-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+
+  padding: 1px;
+
+  background: linear-gradient(
+    110deg,
+    var(--brand-purple),
+    var(--brand-cyan),
+    var(--brand-green)
+  );
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   SLOW SPIN
+   Keep only where actually needed
+   ========================================================= */
+
 @keyframes spin-slow {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
+
 .animate-spin-slow {
-  animation: spin-slow 3s linear infinite;
+  animation: spin-slow 10s linear infinite;
 }
+
+
+/* =========================================================
+   GRADIENT MOVEMENT
+   ========================================================= */
 
 @keyframes gradient-x {
   0%,
   100% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
 }
+
 .animate-gradient-x {
   background-size: 200% auto;
-  animation: gradient-x 3s ease infinite;
+  animation: gradient-x 7s ease-in-out infinite;
 }
+
+
+/* =========================================================
+   SHIMMER
+   Slower than old version
+   ========================================================= */
 
 @keyframes shimmer {
   0% {
-    transform: translateX(-100%);
+    transform: translateX(-120%);
   }
+
   100% {
-    transform: translateX(100%);
+    transform: translateX(120%);
   }
 }
+
 .animate-shimmer {
-  animation: shimmer 2s infinite;
+  animation: shimmer 3.5s ease-in-out infinite;
 }
+
+
+/* =========================================================
+   FLOAT
+   Good for Hero Profile Card / Logo
+   ========================================================= */
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float-soft {
+  animation: float-soft 5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   SOFT PULSE
+   Good for Available / Online indicator
+   ========================================================= */
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.65;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2.2s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   OLD .animated-border
+   Redesigned with new brand colors
+   Keeping class name so existing components don't break
+   ========================================================= */
 
 .animated-border {
   position: relative;
-  padding: 4px;
+
+  padding: 2px;
+
   border-radius: 16px;
+
   overflow: hidden;
+
+  isolation: isolate;
 }
 
-/* rotating gradient rectangle */
+
 .animated-border::before {
   content: "";
+
   position: absolute;
-  inset: -40%;
-  background: linear-gradient(0deg, #facc15, #7c3aed, #ff4ecd, #00f5ff);
-  animation: rotateBorder 5s linear infinite;
+
+  inset: -55%;
+
+  background: conic-gradient(
+    from 0deg,
+    var(--brand-purple),
+    var(--brand-cyan),
+    var(--brand-green),
+    var(--brand-cyan),
+    var(--brand-purple)
+  );
+
+  animation: rotateBorder 10s linear infinite;
+
+  z-index: 0;
 }
+
+
+.animated-border::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 0 18px rgba(139, 92, 246, 0.16),
+    0 0 28px rgba(0, 200, 255, 0.1),
+    0 0 34px rgba(0, 230, 168, 0.07);
+
+  opacity: 0.7;
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
 
 .animated-border:hover::before {
   animation-play-state: paused;
 }
 
-
-/* glow layer */
-.animated-border::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 16px;
-  box-shadow: 0 0 25px rgba(255, 78, 205, 0.45),
-    0 0 35px rgba(139, 92, 246, 0.35),  0 0 45px rgba(250, 204, 21, 0.25);
-
-  z-index: 1;
-  pointer-events: none;
- 
-}
 
 @keyframes rotateBorder {
   to {
@@ -79,88 +427,295 @@
   }
 }
 
-/* inner content */
+
+/* =========================================================
+   INNER CONTENT FOR ANIMATED BORDER
+   ========================================================= */
+
 .animated-border-inner {
   position: relative;
+
   z-index: 2;
-  background: #111a2e;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(23, 36, 58, 0.97),
+      rgba(13, 23, 41, 0.98)
+    );
+
   border-radius: 14px;
+
   padding: 18px;
+
   display: flex;
+
   gap: 12px;
-  color: #cbd5f5;
+
+  color: #cbd5e1;
 }
 
-/* icon */
-.icon {
-  color: #34d399;
-  font-size: 1.25rem;
-  margin-top: 2px;
-}
 
 .animated-border-inner span {
   color: #ffffff;
 }
 
- 
-.animated-card {
-  position: relative;
-  border-radius: 16px;
+
+/* Existing icon class compatibility */
+.icon {
+  color: var(--brand-green);
+
+  font-size: 1.25rem;
+
+  margin-top: 2px;
 }
 
-/* animated border */
-.animated-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 3px;
+
+/* =========================================================
+   OLD .animated-card
+   Redesigned but backward compatible
+   ========================================================= */
+
+.animated-card {
+  position: relative;
+
   border-radius: 16px;
 
+  isolation: isolate;
+
+  transition:
+    transform 300ms ease,
+    box-shadow 300ms ease;
+}
+
+
+.animated-card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  padding: 2px;
+
+  border-radius: inherit;
+
   background: linear-gradient(
-    90deg,
-    #facc15,
-    #a855f7,
-    #22d3ee,
-    #facc15
+    110deg,
+    var(--brand-purple),
+    var(--brand-cyan),
+    var(--brand-green),
+    var(--brand-purple)
   );
 
   background-size: 300% 300%;
-  animation: borderSpin 5s linear infinite;
 
-  /* border only mask */
+  animation: borderFlow 8s ease infinite;
+
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
+
   -webkit-mask-composite: xor;
-          mask-composite: exclude;
+  mask-composite: exclude;
 
   pointer-events: none;
+
   z-index: 0;
 }
 
-/* glow */
+
 .animated-card::after {
   content: "";
+
   position: absolute;
-  inset: 0;
-  border-radius: 16px;
+
+  inset: 2px;
+
+  border-radius: inherit;
+
   box-shadow:
-    0 0 20px rgba(168, 85, 247, 0.35),
-    0 0 35px rgba(236, 72, 153, 0.25);
-  opacity: 0.5;
+    0 0 18px rgba(139, 92, 246, 0.13),
+    0 0 28px rgba(0, 200, 255, 0.08),
+    0 0 34px rgba(0, 230, 168, 0.05);
+
+  opacity: 0.65;
+
   pointer-events: none;
+
   z-index: 0;
 }
 
-/* content layer */
+
 .animated-card > * {
   position: relative;
   z-index: 1;
 }
 
-@keyframes borderSpin {
-  to {
-    background-position: 200% 200%;
+
+.animated-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.25);
+}
+
+
+@keyframes borderFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
   }
 }
 
+
+/* =========================================================
+   AMBIENT BACKGROUND GLOWS
+   Use sparingly
+   ========================================================= */
+
+.ambient-purple {
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.12) 0%,
+    rgba(139, 92, 246, 0.04) 35%,
+    transparent 70%
+  );
+}
+
+
+.ambient-cyan {
+  background: radial-gradient(
+    circle,
+    rgba(0, 200, 255, 0.1) 0%,
+    rgba(0, 200, 255, 0.035) 35%,
+    transparent 70%
+  );
+}
+
+
+.ambient-green {
+  background: radial-gradient(
+    circle,
+    rgba(0, 230, 168, 0.09) 0%,
+    rgba(0, 230, 168, 0.03) 35%,
+    transparent 70%
+  );
+}
+
+
+/* =========================================================
+   BUTTON HELPERS
+   ========================================================= */
+
+.brand-button {
+  position: relative;
+
+  overflow: hidden;
+
+  background: linear-gradient(
+    100deg,
+    var(--brand-purple),
+    var(--brand-cyan),
+    var(--brand-green)
+  );
+
+  background-size: 200% auto;
+
+  color: #041018;
+
+  transition:
+    transform 250ms ease,
+    box-shadow 250ms ease,
+    background-position 500ms ease;
+}
+
+
+.brand-button:hover {
+  transform: translateY(-2px);
+
+  background-position: 100% center;
+
+  box-shadow:
+    0 10px 30px rgba(0, 200, 255, 0.16),
+    0 0 22px rgba(139, 92, 246, 0.12);
+}
+
+
+.brand-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+
+/* =========================================================
+   ICON BUTTON
+   GitHub / LinkedIn / Email etc.
+   ========================================================= */
+
+.social-icon-button {
+  transition:
+    transform 250ms ease,
+    color 250ms ease,
+    border-color 250ms ease,
+    box-shadow 250ms ease,
+    background-color 250ms ease;
+}
+
+
+.social-icon-button:hover {
+  transform: translateY(-3px);
+
+  color: var(--brand-cyan);
+
+  border-color: rgba(0, 200, 255, 0.42);
+
+  background: rgba(0, 200, 255, 0.06);
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.2),
+    0 0 18px rgba(0, 200, 255, 0.1);
+}
+
+
+/* =========================================================
+   SECTION REVEAL HELPER
+   Can also be combined with Framer Motion
+   ========================================================= */
+
+.section-surface {
+  position: relative;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(13, 23, 41, 0.84),
+      rgba(8, 17, 32, 0.96)
+    );
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   Reduce animations when user requests it
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+  }
+}
