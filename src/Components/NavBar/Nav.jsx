@@ -11,7 +11,7 @@ import {
 import { MdEmail, MdWork } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
-import Logo from "../../assets/Logo.jpeg";
+import Logo from "../../../public/logo.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -63,17 +63,17 @@ const Navbar = () => {
             onMouseLeave={() => setHoveredItem(null)}
           >
             <div className="relative">
-              <div className="absolute -inset-2 bg-linear-to-br from-emerald-400/30 to-cyan-400/30 rounded-full blur-md"></div>
+              <div className="absolute -inset-0.5 bg-linear-to-br from-purple-400/20 to-green-400/20 rounded-full blur-md"></div>
               <img
                 src={Logo}
                 alt="Logo"
-                className="relative h-14 w-14 rounded-full border-4 border-slate-900 object-cover"
+                className="relative h-15 w-15 rounded-full object-cover"
               />
             </div>
 
             <div>
               <h1 className="text-xl sm:text-2xl font-extrabold">
-                <span className="bg-linear-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+                <span className="text-white">
                   Hla Mong Sing
                 </span>{" "}
                 <span className="text-slate-100">Marma</span>
