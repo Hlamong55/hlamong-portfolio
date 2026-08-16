@@ -241,14 +241,14 @@ const Projects = () => {
                   <a
                     href={project.githubClient}
                     target="_blank"
-                    className="flex items-center justify-center gap-2 text-sm font-semibold px-4 py-2 rounded-lg bg-white hover:bg-slate-400 transition"
+                    className="flex items-center justify-center gap-2 text-sm font-semibold px-4 py-2 rounded-lg text-black bg-white hover:bg-slate-300 transition"
                   >
                     <FaCode /> Frontend
                   </a>
                   <a
                     href={project.githubServer}
                     target="_blank"
-                    className="flex items-center justify-center gap-2 text-sm font-semibold px-4 py-2 rounded-lg bg-white hover:bg-slate-400 transition"
+                    className="flex items-center justify-center gap-2 text-sm font-semibold px-4 py-2 rounded-lg text-black bg-white hover:bg-slate-300 transition"
                   >
                     <FaServer /> Backend
                   </a>

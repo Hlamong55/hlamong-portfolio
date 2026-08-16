@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+
 import {
   FaBars,
   FaCode,
@@ -8,7 +9,9 @@ import {
   FaTimes,
   FaUser,
 } from "react-icons/fa";
+
 import { MdEmail, MdWork } from "react-icons/md";
+
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 
@@ -16,6 +19,10 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+
+  /* =========================================================
+     NAVIGATION ITEMS
+  ========================================================= */
 
   const navItems = [
     {
@@ -45,26 +52,64 @@ const Navbar = () => {
     },
   ];
 
+  /* =========================================================
+     SCROLL + ACTIVE SECTION
+     
+     Important:
+     Skills stays active after Skills section until Projects starts.
+     Contact stays active after Contact section through Footer.
+  ========================================================= */
+
   useEffect(() => {
     const handleScroll = () => {
+      /* Navbar compact mode */
       setIsScrolled(window.scrollY > 60);
 
-      const sectionIds = navItems.map((item) => item.id);
+      const sections = [
+        "home",
+        "about",
+        "skills",
+        "projects",
+        "contact",
+      ];
+
+      /*
+        The section becomes active when its top crosses this
+        point underneath the fixed navbar.
+      */
+      const triggerPoint = 140;
 
       let currentSection = "home";
 
-      for (const id of sectionIds) {
+      sections.forEach((id) => {
         const section = document.getElementById(id);
 
-        if (!section) continue;
+        if (!section) return;
 
         const rect = section.getBoundingClientRect();
 
-        if (rect.top <= 150 && rect.bottom >= 150) {
+        /*
+          Keep the LAST main section that has crossed
+          the trigger point.
+
+          Therefore:
+
+          Skills
+             ↓
+          WhyChoose
+             ↓
+          still Skills
+
+          Contact
+             ↓
+          Footer
+             ↓
+          still Contact
+        */
+        if (rect.top <= triggerPoint) {
           currentSection = id;
-          break;
         }
-      }
+      });
 
       setActiveSection(currentSection);
     };
@@ -80,19 +125,27 @@ const Navbar = () => {
     };
   }, []);
 
+  /* =========================================================
+     CLOSE MOBILE MENU ON DESKTOP RESIZE
+  ========================================================= */
+
   useEffect(() => {
-    const closeMenuOnResize = () => {
+    const handleResize = () => {
       if (window.innerWidth >= 1024) {
         setIsMenuOpen(false);
       }
     };
 
-    window.addEventListener("resize", closeMenuOnResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("resize", closeMenuOnResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  /* =========================================================
+     CLOSE MOBILE MENU
+  ========================================================= */
 
   const closeMobileMenu = () => {
     setIsMenuOpen(false);
@@ -100,19 +153,28 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      initial={{
+        y: -100,
+        opacity: 0,
+      }}
+      animate={{
+        y: 0,
+        opacity: 1,
+      }}
       transition={{
         duration: 0.6,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className={`fixed top-0 left-0 z-50 w-full border-b transition-all duration-300 ${
+      className={`fixed left-0 top-0 z-50 w-full border-b transition-all duration-300 ${
         isScrolled
           ? "border-white/5 bg-[#081120]/85 py-2 shadow-[0_12px_35px_rgba(0,0,0,0.25)] backdrop-blur-xl"
           : "border-white/5 bg-[#081120]/95 py-3"
       }`}
     >
-      {/* Very subtle navbar glow */}
+      {/* =====================================================
+          BOTTOM GRADIENT LINE
+      ===================================================== */}
+
       <div
         className="pointer-events-none absolute inset-x-0 bottom-0 h-px opacity-60"
         style={{
@@ -123,9 +185,9 @@ const Navbar = () => {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4">
-          {/* ======================================================
+          {/* =================================================
               LOGO / BRAND
-          ====================================================== */}
+          ================================================= */}
 
           <Link
             to="/"
@@ -143,7 +205,7 @@ const Navbar = () => {
               }}
               className="relative shrink-0"
             >
-              {/* Logo glow */}
+              {/* Logo Glow */}
               <div
                 className="absolute -inset-2 rounded-full opacity-40 blur-xl transition-opacity duration-300 group-hover:opacity-70"
                 style={{
@@ -163,6 +225,7 @@ const Navbar = () => {
               />
             </motion.div>
 
+            {/* Name */}
             <div className="min-w-0">
               <h1
                 className={`truncate font-extrabold tracking-tight text-white transition-all duration-300 ${
@@ -178,19 +241,19 @@ const Navbar = () => {
                 Full-Stack Developer
               </p>
 
-              {/* Brand underline */}
+              {/* Logo underline */}
               <div className="mt-1.5 h-[3px] w-12 overflow-hidden rounded-full transition-all duration-500 group-hover:w-24">
                 <div className="brand-gradient-bg h-full w-full" />
               </div>
             </div>
           </Link>
 
-          {/* ======================================================
+          {/* =================================================
               DESKTOP NAVIGATION
-          ====================================================== */}
+          ================================================= */}
 
           <div className="hidden items-center gap-4 lg:flex">
-            <div className="glass-panel flex items-center gap-1 rounded-2xl p-1.5">
+            <div className="glass-panel flex items-center gap-1 rounded-2xl p-1">
               {navItems.map((item) => {
                 const Icon = item.icon;
                 const isActive = activeSection === item.id;
@@ -198,34 +261,20 @@ const Navbar = () => {
                 return (
                   <div
                     key={item.id}
-                    className="relative isolate"
+                    className="relative"
                   >
-                    {/* Sliding active background */}
-                    {isActive && (
-                      <motion.div
-                        layoutId="active-navbar-pill"
-                        transition={{
-                          type: "spring",
-                          stiffness: 380,
-                          damping: 32,
-                        }}
-                        className="absolute inset-0 -z-10 rounded-xl bg-[#081120]/90 shadow-[0_0_22px_rgba(0,200,255,0.10)]"
-                      />
-                    )}
-
                     <ScrollLink
                       to={item.id}
                       smooth
                       offset={-85}
                       duration={550}
-                      spy
-                      onSetActive={() => setActiveSection(item.id)}
-                      className={`relative flex cursor-pointer items-center gap-2 rounded-xl px-4 py-3 transition-colors duration-300 xl:px-5 ${
+                      className={`group relative flex cursor-pointer items-center gap-2 rounded-xl px-4 py-3 transition-all duration-300 xl:px-5 ${
                         isActive
-                          ? "text-white"
-                          : "text-slate-400 hover:text-white"
+                          ? "bg-white/[0.035] text-white"
+                          : "text-slate-400 hover:bg-white/[0.025] hover:text-slate-100"
                       }`}
                     >
+                      {/* Icon */}
                       <motion.span
                         animate={{
                           scale: isActive ? 1.08 : 1,
@@ -233,31 +282,37 @@ const Navbar = () => {
                         transition={{
                           type: "spring",
                           stiffness: 350,
-                          damping: 20,
+                          damping: 22,
                         }}
-                        className="text-base"
-                        style={{
-                          color: isActive ? "#00E6A8" : undefined,
-                        }}
+                        className={`text-base transition-colors duration-300 ${
+                          isActive
+                            ? "text-cyan-300"
+                            : "text-slate-500 group-hover:text-cyan-300"
+                        }`}
                       >
                         <Icon />
                       </motion.span>
 
-                      <span className="text-sm font-semibold">
+                      {/* Label */}
+                      <span
+                        className={`text-sm font-semibold transition-colors duration-300 ${
+                          isActive ? "text-white" : ""
+                        }`}
+                      >
                         {item.label}
                       </span>
                     </ScrollLink>
 
-                    {/* Sliding gradient underline */}
+                    {/* Active sliding gradient line */}
                     {isActive && (
                       <motion.div
                         layoutId="active-navbar-line"
                         transition={{
                           type: "spring",
-                          stiffness: 400,
-                          damping: 30,
+                          stiffness: 420,
+                          damping: 32,
                         }}
-                        className="absolute -bottom-1 left-1/2 h-[3px] w-7 -translate-x-1/2 rounded-full brand-gradient-bg shadow-[0_0_12px_rgba(0,200,255,0.4)]"
+                        className="brand-gradient-bg absolute -bottom-[7px] left-1/2 h-[3px] w-8 -translate-x-1/2 rounded-full shadow-[0_0_8px_rgba(0,200,255,0.35)]"
                       />
                     )}
                   </div>
@@ -265,9 +320,9 @@ const Navbar = () => {
               })}
             </div>
 
-            {/* ==================================================
+            {/* =================================================
                 HIRE ME BUTTON
-            ================================================== */}
+            ================================================= */}
 
             <ScrollLink
               to="contact"
@@ -295,19 +350,14 @@ const Navbar = () => {
 
                 <span>Hire Me</span>
 
-                <motion.span
-                  initial={{ x: 0 }}
-                  whileHover={{ x: 3 }}
-                >
-                  →
-                </motion.span>
+                <span>→</span>
               </motion.button>
             </ScrollLink>
           </div>
 
-          {/* ======================================================
-              MOBILE MENU BUTTON
-          ====================================================== */}
+          {/* =================================================
+              MOBILE TOGGLE
+          ================================================= */}
 
           <motion.button
             whileTap={{
@@ -378,9 +428,9 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* ==========================================================
+      {/* =====================================================
           MOBILE NAVIGATION
-      ========================================================== */}
+      ===================================================== */}
 
       <AnimatePresence>
         {isMenuOpen && (
@@ -439,14 +489,16 @@ const Navbar = () => {
                             : "text-slate-400 hover:bg-white/[0.04] hover:text-white"
                         }`}
                       >
+                        {/* Mobile active indicator */}
                         {isActive && (
                           <motion.div
                             layoutId="mobile-active-indicator"
-                            className="absolute bottom-0 left-0 top-0 w-[3px] brand-gradient-bg"
+                            className="brand-gradient-bg absolute bottom-0 left-0 top-0 w-[3px]"
                           />
                         )}
 
                         <div className="flex items-center gap-3">
+                          {/* Icon */}
                           <span
                             className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#081120]"
                             style={{
@@ -458,13 +510,14 @@ const Navbar = () => {
                             <Icon />
                           </span>
 
+                          {/* Label */}
                           <span className="font-semibold">
                             {item.label}
                           </span>
                         </div>
 
                         <span
-                          className={`transition-transform ${
+                          className={`transition-all ${
                             isActive
                               ? "translate-x-0 text-cyan-300"
                               : "-translate-x-1 text-slate-600"
@@ -478,7 +531,10 @@ const Navbar = () => {
                 })}
               </div>
 
-              {/* Mobile Hire Me */}
+              {/* =================================================
+                  MOBILE HIRE ME
+              ================================================= */}
+
               <ScrollLink
                 to="contact"
                 smooth
