@@ -52,12 +52,8 @@ const Navbar = () => {
     },
   ];
 
-  /* =========================================================
+  /* ======================================================
      SCROLL + ACTIVE SECTION
-     
-     Important:
-     Skills stays active after Skills section until Projects starts.
-     Contact stays active after Contact section through Footer.
   ========================================================= */
 
   useEffect(() => {
@@ -91,20 +87,6 @@ const Navbar = () => {
         /*
           Keep the LAST main section that has crossed
           the trigger point.
-
-          Therefore:
-
-          Skills
-             ↓
-          WhyChoose
-             ↓
-          still Skills
-
-          Contact
-             ↓
-          Footer
-             ↓
-          still Contact
         */
         if (rect.top <= triggerPoint) {
           currentSection = id;
@@ -167,8 +149,8 @@ const Navbar = () => {
       }}
       className={`fixed left-0 top-0 z-50 w-full border-b transition-all duration-300 ${
         isScrolled
-          ? "border-white/5 bg-[#081120]/85 py-2 shadow-[0_12px_35px_rgba(0,0,0,0.25)] backdrop-blur-xl"
-          : "border-white/5 bg-[#081120]/95 py-3"
+          ? "border-white/5 bg-brand-bg/85 py-2 shadow-[0_12px_35px_rgba(0,0,0,0.25)] backdrop-blur-xl"
+          : "border-white/5 bg-brand-bg/95 py-3"
       }`}
     >
       {/* =====================================================
@@ -207,7 +189,7 @@ const Navbar = () => {
             >
               {/* Logo Glow */}
               <div
-                className="absolute -inset-2 rounded-full opacity-40 blur-xl transition-opacity duration-300 group-hover:opacity-70"
+                className="absolute -inset-2 rounded-full opacity-40 blur-xl transition-opacity duration-300 group-hover:opacity-50"
                 style={{
                   background:
                     "linear-gradient(135deg, #8B5CF6, #00C8FF, #00E6A8)",
@@ -271,7 +253,7 @@ const Navbar = () => {
                       className={`group relative flex cursor-pointer items-center gap-2 rounded-xl px-4 py-3 transition-all duration-300 xl:px-5 ${
                         isActive
                           ? "bg-white/[0.035] text-white"
-                          : "text-slate-400 hover:bg-white/[0.025] hover:text-slate-100"
+                          : "text-slate-400 hover:bg-white/2.5 hover:text-slate-100"
                       }`}
                     >
                       {/* Icon */}
@@ -370,7 +352,7 @@ const Navbar = () => {
                 : "Open navigation menu"
             }
             aria-expanded={isMenuOpen}
-            className="relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-white/[0.04] text-lg text-slate-200 transition hover:border-cyan-400/30 hover:bg-white/[0.07] lg:hidden"
+            className="relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-white/4 text-lg text-slate-200 transition hover:border-cyan-400/30 hover:bg-white/[0.07] lg:hidden"
           >
             <AnimatePresence mode="wait">
               {isMenuOpen ? (
@@ -486,7 +468,7 @@ const Navbar = () => {
                         className={`relative flex cursor-pointer items-center justify-between overflow-hidden rounded-xl px-4 py-3.5 transition-all ${
                           isActive
                             ? "bg-white/[0.07] text-white"
-                            : "text-slate-400 hover:bg-white/[0.04] hover:text-white"
+                            : "text-slate-400 hover:bg-white/4 hover:text-white"
                         }`}
                       >
                         {/* Mobile active indicator */}
@@ -500,7 +482,7 @@ const Navbar = () => {
                         <div className="flex items-center gap-3">
                           {/* Icon */}
                           <span
-                            className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#081120]"
+                            className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-bg"
                             style={{
                               color: isActive
                                 ? "#00E6A8"
