@@ -172,89 +172,197 @@ const About = () => {
     <section
       ref={sectionRef}
       id="about"
-      className=" relative  overflow-hidden bg-[#0D1729] py-24 text-slate-300 sm:py-28"
+      className=" relative overflow-hidden bg-[#081120] py-24 text-slate-300 sm:py-28"
     >
       {/* ===================================================
           BACKGROUND
       =================================================== */}
 
       <div
-        className=" pointer-events-none  absolute inset-0  bg-linear-to-br from-[#0D1729]  via-[#101B30] to-brand-bg"
+        className="pointer-events-none absolute inset-0 bg-linear-to-br from-[#081120] via-[#0b1527] to-[#081120]"
       />
 
       {/* Purple Glow */}
 
       <motion.div
         animate={{
-          x: [0, 50, 0],
-          y: [0, 40, 0],
-          scale: [1, 1.08, 1],
+          x: [0, 70, 20, 0],
+          y: [0, 30, 80, 0],
+          scale: [1, 1.12, 0.95, 1],
         }}
         transition={{
-          duration: 16,
+          duration: 15,
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className=" pointer-events-none absolute -left-48  top-1/4 h-[430px]  w-[430px]  rounded-full bg-purple-500/[0.07] blur-[120px]"
+        className="pointer-events-none absolute -left-48 top-20 h-[480px] w-[480px] rounded-full bg-purple-600/10 blur-[120px]"
       />
 
       {/* Cyan Glow */}
 
       <motion.div
         animate={{
-          x: [0, -40, 0],
-          y: [0, -50, 0],
-          scale: [1, 0.92, 1],
+          x: [0, -60, 0],
+          y: [0, 80, 20, 0],
+          scale: [1, 0.9, 1.08, 1],
         }}
         transition={{
-          duration: 18,
+          duration: 17,
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="
-          pointer-events-none
-          absolute
-          -right-40
-          bottom-20
-          h-[420px]
-          w-[420px]
-          rounded-full
-          bg-cyan-400/[0.07]
-          blur-[125px]
-        "
+        className="pointer-events-none absolute -right-40 top-10 h-[500px] w-[500px] rounded-full bg-cyan-400/10 blur-[130px]"
       />
 
       {/* Green Glow */}
 
       <motion.div
         animate={{
-          opacity: [0.04, 0.09, 0.04],
-          scale: [1, 1.1, 1],
+          x: [0, 80, 30, 0],
+          y: [0, -30, 40, 0],
+          scale: [1, 1.15, 1],
         }}
         transition={{
-          duration: 12,
+          duration: 19,
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className=" pointer-events-none absolute left-[35%] top-[40%]  h-[350px] w-[350px] rounded-full bg-emerald-400/8 blur-[120px]"
+        className="pointer-events-none absolute bottom-[-220px] left-[35%] h-[430px] w-[430px] rounded-full bg-emerald-400/8 blur-[120px]"
       />
 
       {/* Grid */}
 
       <div
-        className="
-          pointer-events-none
-          absolute
-          inset-0
-          opacity-[0.025]
-        "
+        className="pointer-events-none absolute inset-0 opacity-[0.035]"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)
+            linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)
           `,
-          backgroundSize: "60px 60px",
+          backgroundSize: "55px 55px",
         }}
+      />
+
+      {/* Floating Space Dots */}
+
+      <motion.span
+        animate={{
+          y: [0, -25, 0],
+          opacity: [0.3, 0.8, 0.3],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="pointer-events-none absolute left-[8%] top-[18%] h-2 w-2 rounded-full bg-purple-400 shadow-[0_0_18px_#8B5CF6]"
+      />
+
+      <motion.span
+        animate={{
+          y: [0, 30, 0],
+          x: [0, 12, 0],
+          opacity: [0.2, 0.9, 0.2],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 0.5,
+        }}
+        className="pointer-events-none absolute right-[12%] top-[22%] h-2 w-2 rounded-full bg-cyan-400 shadow-[0_0_18px_#00C8FF]"
+      />
+
+      <motion.span
+        animate={{
+          y: [0, -20, 0],
+          x: [0, -12, 0],
+          opacity: [0.2, 0.75, 0.2],
+        }}
+        transition={{
+          duration: 7,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1,
+        }}
+        className="pointer-events-none absolute bottom-[18%] left-[44%] h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_18px_#00E6A8]"
+      />
+
+      <motion.span
+        animate={{
+          opacity: [0.15, 0.8, 0.15],
+          scale: [0.7, 1.3, 0.7],
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="pointer-events-none absolute left-[20%] top-[42%] h-1 w-1 rounded-full bg-cyan-300 shadow-[0_0_10px_#00C8FF]"
+      />
+
+      <motion.span
+        animate={{
+          y: [0, 18, 0],
+          opacity: [0.2, 0.8, 0.2],
+        }}
+        transition={{
+          duration: 5.5,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1.2,
+        }}
+        className="pointer-events-none absolute right-[28%] top-[48%] h-1 w-1 rounded-full bg-purple-300 shadow-[0_0_10px_#8B5CF6]"
+      />
+
+      <motion.span
+        animate={{
+          y: [0, -18, 0],
+          x: [0, 7, 0],
+          opacity: [0.2, 0.9, 0.2],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 0.7,
+        }}
+        className="pointer-events-none absolute right-[17%] bottom-[18%] h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_12px_#00E6A8]"
+      />
+
+      <motion.span
+        animate={{
+          opacity: [0.1, 0.7, 0.1],
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+        }}
+        className="pointer-events-none absolute left-[65%] top-[15%] h-[3px] w-[3px] rounded-full bg-white shadow-[0_0_8px_white]"
+      />
+
+      <motion.span
+        animate={{
+          opacity: [0.15, 0.6, 0.15],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          delay: 1,
+        }}
+        className="pointer-events-none absolute left-[12%] bottom-[25%] h-[3px] w-[3px] rounded-full bg-white shadow-[0_0_7px_white]"
+      />
+
+      <motion.span
+        animate={{
+          opacity: [0.1, 0.65, 0.1],
+        }}
+        transition={{
+          duration: 3.5,
+          repeat: Infinity,
+          delay: 0.4,
+        }}
+        className="pointer-events-none absolute right-[38%] bottom-[12%] h-[2px] w-[2px] rounded-full bg-white shadow-[0_0_6px_white]"
       />
 
       {/* ===================================================
