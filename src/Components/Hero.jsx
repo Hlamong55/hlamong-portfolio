@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
 import {
@@ -20,7 +21,7 @@ import {
 
 import { Link as ScrollLink } from "react-scroll";
 
-import resume from "../assets/Hlamong_MERN_Resume.pdf";
+import resume from "../assets/Hlamong_Full-Stack_Resume.pdf";
 import img from "../assets/Logo.jpeg";
 
 /* =========================================================
