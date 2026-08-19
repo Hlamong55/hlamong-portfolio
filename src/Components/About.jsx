@@ -172,14 +172,14 @@ const About = () => {
     <section
       ref={sectionRef}
       id="about"
-      className=" relative overflow-hidden bg-[#081120] py-24 text-slate-300 sm:py-28"
+      className=" relative overflow-hidden bg-brand-bg py-24 text-slate-300 sm:py-28"
     >
       {/* ===================================================
           BACKGROUND
       =================================================== */}
 
       <div
-        className="pointer-events-none absolute inset-0 bg-linear-to-br from-[#081120] via-[#0b1527] to-[#081120]"
+        className="pointer-events-none absolute inset-0 bg-linear-to-br from-brand-bg via-[#0b1527] to-brand-bg"
       />
 
       {/* Purple Glow */}
@@ -362,7 +362,7 @@ const About = () => {
           repeat: Infinity,
           delay: 0.4,
         }}
-        className="pointer-events-none absolute right-[38%] bottom-[12%] h-[2px] w-[2px] rounded-full bg-white shadow-[0_0_6px_white]"
+        className="pointer-events-none absolute right-[38%] bottom-[12%] h-0.5 w-0.5 rounded-full bg-white shadow-[0_0_6px_white]"
       />
 
       {/* ===================================================
@@ -377,14 +377,7 @@ const About = () => {
           once: true,
           amount: 0.08,
         }}
-        className="
-          relative
-          z-10
-          mx-auto
-          max-w-7xl
-          px-6
-          lg:px-8
-        "
+        className=" relative z-10 mx-auto max-w-7xl px-6 lg:px-8"
       >
         {/* =================================================
             SECTION HEADER
@@ -396,14 +389,7 @@ const About = () => {
 
           <motion.h2
             variants={fadeUp}
-            className="
-              text-4xl
-              font-extrabold
-              tracking-tight
-              text-white
-              sm:text-5xl
-              lg:text-6xl
-            "
+            className=" text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl"
           >
             About{" "}
 
@@ -416,15 +402,7 @@ const About = () => {
 
           <motion.p
             variants={fadeUp}
-            className="
-              mx-auto
-              mt-5
-              max-w-2xl
-              text-base
-              leading-7
-              text-slate-400
-              sm:text-lg
-            "
+            className=" mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-400 sm:text-lg"
           >
             A little about my journey, development mindset, and
             the direction I am building my career toward.
@@ -436,13 +414,7 @@ const About = () => {
         ================================================= */}
 
         <div
-          className="
-            grid
-            items-start
-            gap-14
-            lg:grid-cols-[1fr_0.95fr]
-            lg:gap-20
-          "
+          className=" grid items-start gap-14 lg:grid-cols-[1fr_0.95fr] lg:gap-20"
         >
           {/* =================================================
               LEFT SIDE
@@ -527,27 +499,10 @@ const About = () => {
                 stiffness: 260,
                 damping: 18,
               }}
-              className="
-                brand-border
-                relative
-                overflow-hidden
-                rounded-2xl
-                bg-[#111C30]/80
-                p-6
-                backdrop-blur-sm
-              "
+              className=" brand-border  relative overflow-hidden rounded-2xl bg-[#111C30]/80 p-6 backdrop-blur-sm"
             >
               <div
-                className="
-                  absolute
-                  -right-8
-                  -top-8
-                  h-28
-                  w-28
-                  rounded-full
-                  bg-cyan-400/8
-                  blur-3xl
-                "
+                className=" absolute -right-8 -top-8 h-28 w-28  rounded-full bg-cyan-400/8 blur-3xl"
               />
 
               <div className="relative flex gap-4">
@@ -558,25 +513,13 @@ const About = () => {
 
                 <div>
                   <p
-                    className="
-                      text-sm
-                      font-semibold
-                      uppercase
-                      tracking-[0.18em]
-                      text-slate-500
-                    "
+                    className=" text-sm font-semibold  uppercase tracking-[0.18em] text-slate-500"
                   >
                     Development Mindset
                   </p>
 
                   <p
-                    className="
-                      mt-2
-                      text-lg
-                      font-medium
-                      leading-7
-                      text-slate-200
-                    "
+                    className=" mt-2 text-lg font-medium leading-7 text-slate-200"
                   >
                     “Turning ideas into clean, scalable and
                     user-focused digital experiences.”
@@ -604,17 +547,7 @@ const About = () => {
                 className=" brand-glow-hover group relative overflow-hidden  rounded-2xl border border-white/[0.07]  bg-[#111C30]/75  p-6  backdrop-blur-sm"
               >
                 <div
-                  className="
-                    absolute
-                    inset-x-0
-                    top-0
-                    h-px
-                    bg-linear-to-r
-                    from-purple-500
-                    via-cyan-400
-                    to-emerald-400
-                    opacity-50
-                  "
+                  className=" absolute inset-x-0  top-0 h-px bg-linear-to-r from-purple-500 via-cyan-400 to-emerald-400 opacity-50"
                 />
 
                 <div
@@ -658,31 +591,10 @@ const About = () => {
                   stiffness: 280,
                   damping: 20,
                 }}
-                className="
-                  brand-glow-hover
-                  group
-                  relative
-                  overflow-hidden
-                  rounded-2xl
-                  border
-                  border-white/[0.07]
-                  bg-[#111C30]/75
-                  p-6
-                  backdrop-blur-sm
-                "
+                className=" brand-glow-hover group relative overflow-hidden  rounded-2xl border border-white/[0.07]  bg-[#111C30]/75  p-6 backdrop-blur-sm"
               >
                 <div
-                  className="
-                    absolute
-                    inset-x-0
-                    top-0
-                    h-px
-                    bg-linear-to-r
-                    from-emerald-400
-                    via-cyan-400
-                    to-purple-500
-                    opacity-50
-                  "
+                  className=" absolute inset-x-0 top-0 h-px bg-linear-to-r from-emerald-400 via-cyan-400 to-purple-500 opacity-50"
                 />
 
                 <div
@@ -808,12 +720,7 @@ const About = () => {
               </span>
 
               <h3
-                className="
-                  mt-2
-                  text-2xl
-                  font-bold
-                  text-white
-                  sm:text-3xl
+                className=" mt-2 text-2xl font-bold text-white sm:text-3xl
                 "
               >
                 Learning, Building & Growing

@@ -336,7 +336,7 @@ const Skills = () => {
         >
           {/* Badge */}
 
-          <motion.div
+          {/* <motion.div
             variants={fadeUp}
             className="
               glass-panel
@@ -389,20 +389,13 @@ const Skills = () => {
             </span>
 
             <FaStar className="text-cyan-300" />
-          </motion.div>
+          </motion.div> */}
 
           {/* Heading */}
 
           <motion.h2
             variants={fadeUp}
-            className="
-              text-4xl
-              font-extrabold
-              tracking-tight
-              text-white
-              sm:text-5xl
-              lg:text-6xl
-            "
+            className=" text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl"
           >
             Technical{" "}
             <span className="brand-gradient-text">
@@ -414,15 +407,7 @@ const Skills = () => {
 
           <motion.p
             variants={fadeUp}
-            className="
-              mx-auto
-              mt-5
-              max-w-2xl
-              text-base
-              leading-7
-              text-slate-400
-              sm:text-lg
-            "
+            className=" mx-auto mt-5  max-w-2xl  text-base leading-7 text-slate-400 sm:text-lg"
           >
             Technologies I use to build scalable, modern and high-quality web
             applications.
@@ -449,13 +434,7 @@ const Skills = () => {
             duration: 0.5,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="
-            mb-14
-            flex
-            flex-wrap
-            justify-center
-            gap-3
-          "
+          className=" mb-14 flex flex-wrap justify-center gap-3"
         >
           {/* ALL */}
 
@@ -479,15 +458,7 @@ const Skills = () => {
             {active === "all" && (
               <motion.span
                 layoutId="active-skill-filter"
-                className="
-                  absolute
-                  inset-0
-                  rounded-xl
-                  bg-linear-to-r
-                  from-purple-500/20
-                  via-cyan-400/15
-                  to-emerald-400/20
-                "
+                className=" absolute inset-0  rounded-xl bg-linear-to-r from-purple-500/20 via-cyan-400/15 to-emerald-400/20"
                 transition={{
                   type: "spring",
                   stiffness: 350,
@@ -529,15 +500,7 @@ const Skills = () => {
                 {isActive && (
                   <motion.span
                     layoutId="active-skill-filter"
-                    className="
-                      absolute
-                      inset-0
-                      rounded-xl
-                      bg-linear-to-r
-                      from-purple-500/20
-                      via-cyan-400/15
-                      to-emerald-400/20
-                    "
+                    className=" absolute inset-0 rounded-xl bg-linear-to-r from-purple-500/20 via-cyan-400/15 to-emerald-400/20"
                     transition={{
                       type: "spring",
                       stiffness: 350,
@@ -564,14 +527,7 @@ const Skills = () => {
 
         <motion.div
           layout
-          className="
-            grid
-            gap-5
-            sm:grid-cols-2
-            md:grid-cols-3
-            lg:grid-cols-4
-            xl:gap-6
-          "
+          className=" grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-6"
         >
           <AnimatePresence mode="popLayout">
             {skillsToShow.map((skill, index) => (
@@ -625,27 +581,12 @@ const Skills = () => {
                         y: -6,
                       }
                 }
-                className="
-                  group
-                  relative
-                  transform-gpu
-                  overflow-hidden
-                  rounded-2xl
-                  border
-                  border-white/[0.07]
-                  bg-[#111C30]/72
-                  p-5
-                  backdrop-blur-sm
-                  transition-colors
-                  duration-300
-                  hover:border-cyan-400/20
-                "
+                className=" group relative transform-gpu overflow-hidden rounded-2xl border border-white/[0.07] bg-[#111C30]/72 p-5 backdrop-blur-sm transition-colors duration-300 hover:border-cyan-400/20"
               >
                 {/* Top gradient accent */}
 
                 <div
-                  className="
-                    absolute
+                  className=" absolute
                     inset-x-8
                     top-0
                     h-px
@@ -779,71 +720,6 @@ const Skills = () => {
               </motion.div>
             ))}
           </AnimatePresence>
-        </motion.div>
-
-        {/* =================================================
-            BOTTOM MESSAGE
-        ================================================= */}
-
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            duration: 0.55,
-            delay: 0.15,
-          }}
-          className="mt-16 text-center"
-        >
-          <motion.div
-            whileHover={
-              shouldReduceMotion
-                ? {}
-                : {
-                    y: -3,
-                  }
-            }
-            className="
-              glass-panel
-              inline-flex
-              max-w-full
-              items-center
-              gap-3
-              rounded-2xl
-              px-6
-              py-4
-              sm:px-8
-            "
-          >
-            <motion.span
-              animate={
-                shouldReduceMotion
-                  ? {}
-                  : {
-                      y: [0, -3, 0],
-                    }
-              }
-              transition={{
-                duration: 2.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-              <FaRocket className="text-emerald-400" />
-            </motion.span>
-
-            <span className="text-sm font-medium text-slate-300 sm:text-base">
-              Always learning & improving with modern technologies
-            </span>
-          </motion.div>
         </motion.div>
       </div>
     </section>
