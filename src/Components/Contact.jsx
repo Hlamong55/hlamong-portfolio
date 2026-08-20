@@ -137,7 +137,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSending || isSubmitted}
-                className={`w-full py-4 rounded-xl font-semibold flex items-center justify-center gap-3 transition-all ${
+                className={`w-full py-4 rounded-xl font-bold flex items-center justify-center gap-3 transition-all text-black ${
                   isSubmitted
                     ? "bg-emerald-600"
                     : "bg-linear-to-r from-emerald-500 to-blue-500 hover:scale-[1.02]"
@@ -151,7 +151,7 @@ const Contact = () => {
                   </>
                 ) : (
                   <>
-                    <FaPaperPlane /> Send Message <FiArrowUpRight />
+                    <FaPaperPlane /> Send Message
                   </>
                 )}
               </button>
@@ -234,11 +234,6 @@ const Contact = () => {
                     icon: <FaLinkedin />,
                     name: "LinkedIn",
                     link: "https://www.linkedin.com/in/hlamong-sing/",
-                  },
-                  {
-                    icon: <FaFacebook />,
-                    name: "Facebook",
-                    link: "https://www.facebook.com/hla.mong.323851/",
                   },
                   {
                     icon: <FaWhatsapp />,

@@ -334,63 +334,6 @@ const Skills = () => {
           }}
           className="mb-14 text-center sm:mb-16"
         >
-          {/* Badge */}
-
-          {/* <motion.div
-            variants={fadeUp}
-            className="
-              glass-panel
-              mb-6
-              inline-flex
-              items-center
-              gap-3
-              rounded-full
-              px-5
-              py-2.5
-            "
-          >
-            <span className="relative flex h-2.5 w-2.5">
-              <span
-                className="
-                  absolute
-                  inline-flex
-                  h-full
-                  w-full
-                  animate-ping
-                  rounded-full
-                  bg-emerald-400
-                  opacity-40
-                "
-              />
-
-              <span
-                className="
-                  relative
-                  inline-flex
-                  h-2.5
-                  w-2.5
-                  rounded-full
-                  bg-emerald-400
-                "
-              />
-            </span>
-
-            <span
-              className="
-                text-xs
-                font-bold
-                uppercase
-                tracking-[0.24em]
-                text-slate-300
-                sm:text-sm
-              "
-            >
-              Skills
-            </span>
-
-            <FaStar className="text-cyan-300" />
-          </motion.div> */}
-
           {/* Heading */}
 
           <motion.h2
